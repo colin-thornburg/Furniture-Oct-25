@@ -29,9 +29,10 @@ models:
         tests:
           - not_null
           - relationships:
-              column: customer_id
-              to: ref('silver_customers')
-              field: customer_id
+              arguments:
+                column: customer_id
+                to: ref('silver_customers')
+                field: customer_id
       - name: order_date
         description: Order date as date type
       - name: total_amount
@@ -52,9 +53,10 @@ models:
         tests:
           - not_null
           - relationships:
-              column: order_id
-              to: ref('silver_orders')
-              field: order_id
+              arguments:
+                column: order_id
+                to: ref('silver_orders')
+                field: order_id
       - name: product_type
         description: Product type
       - name: quantity
