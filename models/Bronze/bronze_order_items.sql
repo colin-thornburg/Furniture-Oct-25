@@ -1,6 +1,9 @@
 {{ config(
     materialized='view',
-    tags=['bronze']
+    tags=['bronze'],
+    meta={
+        'layer': 'bronze'
+    }
 ) }}
 
 select
