@@ -1,0 +1,55 @@
+version: 2
+
+models:
+  - name: bronze_customers
+    description: Raw customer data loaded from seed
+    columns:
+      - name: customer_id
+        description: Unique customer identifier
+        tests:
+          - unique
+          - not_null
+      - name: customer_name
+        description: Customer company name
+      - name: region
+        description: Geographic region
+      - name: industry
+        description: Industry classification
+
+  - name: bronze_orders
+    description: Raw order data loaded from seed
+    columns:
+      - name: order_id
+        description: Unique order identifier
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: Foreign key to customers
+        tests:
+          - not_null
+      - name: order_date
+        description: Date order was placed
+      - name: total_amount
+        description: Order total in USD
+      - name: status
+        description: Order status (completed, in_progress)
+
+  - name: bronze_order_items
+    description: Raw order line items from seed
+    columns:
+      - name: item_id
+        description: Unique line item identifier
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: Foreign key to orders
+        tests:
+          - not_null
+      - name: product_type
+        description: Type of product ordered
+      - name: quantity
+        description: Quantity ordered
+      - name: unit_price
+        description: Price per unit in USD

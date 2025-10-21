@@ -1,0 +1,63 @@
+version: 2
+
+models:
+  - name: silver_customers
+    description: Cleaned customer data with standardized formats
+    columns:
+      - name: customer_id
+        description: Unique customer identifier
+        tests:
+          - unique
+          - not_null
+      - name: customer_name
+        description: Customer company name
+      - name: region
+        description: Standardized region
+      - name: industry
+        description: Standardized industry classification
+
+  - name: silver_orders
+    description: Cleaned orders with validation
+    columns:
+      - name: order_id
+        description: Unique order identifier
+        tests:
+          - unique
+          - not_null
+      - name: customer_id
+        description: Foreign key to customers
+        tests:
+          - not_null
+          - relationships:
+              to: ref('silver_customers')
+              field: customer_id
+      - name: order_date
+        description: Order date as date type
+      - name: total_amount
+        description: Order total amount
+      - name: status
+        description: Standardized order status
+
+  - name: silver_order_items
+    description: Cleaned order line items with calculations
+    columns:
+      - name: item_id
+        description: Unique line item identifier
+        tests:
+          - unique
+          - not_null
+      - name: order_id
+        description: Foreign key to orders
+        tests:
+          - not_null
+          - relationships:
+              to: ref('silver_orders')
+              field: order_id
+      - name: product_type
+        description: Product type
+      - name: quantity
+        description: Quantity ordered
+      - name: unit_price
+        description: Unit price in USD
+      - name: line_total
+        description: Calculated total for line item
