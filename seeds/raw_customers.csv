@@ -1,0 +1,9 @@
+customer_id,customer_name,region,industry
+C001,Acme Corp,Northeast,Technology
+C002,Global Industries,Midwest,Manufacturing
+C003,Tech Startup Inc,West,Technology
+C004,Manufacturing Plus,South,Manufacturing
+C005,Enterprise Solutions,Northeast,Professional Services
+C006,Mid-Market Co,Midwest,Retail
+C007,Growth Industries,West,Technology
+C008,Local Business,South,Retail

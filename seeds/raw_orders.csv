@@ -1,0 +1,11 @@
+order_id,customer_id,order_date,total_amount,status
+O001,C001,2024-01-15,15000,completed
+O002,C002,2024-01-18,8500,completed
+O003,C001,2024-02-10,22000,completed
+O004,C003,2024-02-14,12000,in_progress
+O005,C002,2024-02-20,18500,completed
+O006,C004,2024-03-05,9000,completed
+O007,C005,2024-03-12,25000,completed
+O008,C003,2024-03-18,11000,in_progress
+O009,C006,2024-03-25,6500,completed
+O010,C007,2024-04-01,19000,completed
