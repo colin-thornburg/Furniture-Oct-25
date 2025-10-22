@@ -1,5 +1,6 @@
 {{ config(
     materialized='view',
+    database=env_var('DBT_ENV_LAYER', 'dev_') ~ 'silver',
     tags=['silver']
 ) }}
 
