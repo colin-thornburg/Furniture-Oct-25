@@ -1,5 +1,6 @@
 {{ config(
     materialized='table',
+    database=env_var('DBT_ENV_LAYER', 'dev_') ~ 'gold',
     tags=['gold', 'fact']
 ) }}
 
