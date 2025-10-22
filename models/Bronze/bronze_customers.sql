@@ -1,10 +1,10 @@
-{{ config(
-    materialized='view',
-    tags=['bronze'],
-    meta={
-        'layer': 'bronze'
-    }
-) }}
+{{
+    config(
+        materialized='view',
+        schema='customer',
+        database=env_var('DBT_ENV_LAYER', 'dev_') ~ 'bronze'
+    )
+}}
 
 select
     customer_id,

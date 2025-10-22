@@ -1,5 +1,6 @@
 {{ config(
     materialized='view',
+    database=env_var('DBT_ENV_LAYER', 'dev_') ~ 'bronze',
     tags=['bronze'],
     meta={
         'layer': 'bronze'
